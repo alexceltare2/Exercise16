@@ -1,3 +1,4 @@
+import sys
 from customer import Account
 from employee import Employee
 
@@ -11,9 +12,12 @@ def main():
     bal = input("Enter initial deposit(£): ")
     account_one = Employee(name, gen, dep, idd)
     print(account_one)
-    account_one = Account(int(bal))
+    try:
+        account_one = Account(int(bal))
+    except ValueError:
+        sys.exit("You need to type a number for deposit!")
     print(account_one)
-    print("\nCreating another account:...")
+    print("\nCreating another account with £2000 deposit:...")
     account_two = Account(2000)
     print(f"Total number of created accounts: {Account.numCreated}")
     print("Comparing accounts:.....")

@@ -1,6 +1,10 @@
-class Person:
+import sys
 
+
+class Person:
     def __init__(self, name, gender):
+        if gender not in {"m", "f"}:
+            raise ValueError("Invalid gender choice!")
         self._name = name
         self._gender = gender.upper()
 
